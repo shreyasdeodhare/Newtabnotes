@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Tab Notes</title>
+  <meta charset="utf-8">
+  <style>
+
+    html, body{
+      height:100%;
+      min-width:100%;
+      margin:0;
+      padding:0;
+      font-size:100%;
+    }
+    h1{
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+    }
+    body{
+      background: #f7fafc;
+      color: #1b2638;
+    }
+    body.dark{
+      color: #f7fafc;
+      background:#1b2638;
+    }
+    div.main{
+      display:flex;
+      height:100%;
+    }
+    aside.sidebar{
+      width:300px;
+      background:#edf2f7;
+      height:100%;
+      padding:25px;
+    }
+    .dark aside.sidebar{
+      background:#718096;
+    }
+    section.holder{
+      width: -webkit-fill-available;
+      height:100%;
+      padding:25px;
+    }
+    div.icon{
+      height:30px;
+      width:30px;
+      line-height:30px;
+      font-size:28px;
+    }
+    .holder div.icon{
+      cursor:pointer;
+    }
+
+    [contenteditable]:focus{
+      outline:0px solid transparent;
+    }
+    [placeholder]:empty:before{
+      content: attr(placeholder);
+      color:inherit;
+      opacity:0.5;
+      cursor:text;
+    }
+    [placeholder]:empty:focus:before{
+      content:"";
+    }
+
+    ul{
+      padding:0;
+      margin:0;
+      list-style:none;
+    }
+    .newNote, ul li{
+      padding-top:5px;
+      padding-bottom:5px;
+      cursor:pointer;
+      padding-left:5px;
+    }
+    .newNote:hover,
+    ul li.active,
+    ul li:hover{
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .deletePage{
+      margin-right: 15px;
+    }
+    .savePage, .deletePage{
+      float:right;
+      padding: 10px 20px;
+      background:transparent;
+      border-radius:3px;
+      border:2px solid;
+      color:white;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      cursor:pointer;
+    }
+    .savePage:hover, .deletePage:hover{
+      background: white;
+      color:black;
+    }
+    .hidden{
+      display:none;
+    }
+    .post-body{
+      min-height: 100px;
+      width:100%;
+    }
+
+
+
+  </style>
+</head>
+
+<body class="dark">
+  <div class="main">
+    <aside class="sidebar">
+      <div class="icon">✒️</div>
+      <h1>New Tab Notes</h1>
+      <div class="newNote">➕ New Note</div>
+      <div class="pages-holder"></div>
+    </aside>
+    <section class="holder">
+      <div class="icon">📃</div>
+
+      <button class="savePage hidden">Save</button>
+      <button class="deletePage hidden">Delete</button>
+
+      <h1 contenteditable="true" placeholder="Untitled"></h1>
+      <div class="post-body" contenteditable="true" placeholder="Write your post here..."></div>
+    </section>
+  </div>
+
+
+
+  <script src="app.js"></script>
+</body>
+</html>
